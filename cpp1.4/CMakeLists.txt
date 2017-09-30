@@ -1,0 +1,1 @@
+add_executable(square_equation square_equation.cpp)
