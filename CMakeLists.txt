@@ -10,3 +10,4 @@ add_subdirectory(sfml1.1)
 add_subdirectory(sfml1.2)
 
 add_subdirectory(sfml2.1)
+add_subdirectory(sfml2.2)
