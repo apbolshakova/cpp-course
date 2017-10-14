@@ -6,14 +6,14 @@
 int main()
 {
     constexpr int pointCount = 200;
-    const sf::Vector2f ellipseRadius = {200.f, 200.f};
+    const float roseRadius = 200;
     sf::Vector2f position = {200, 400};
     sf::Vector2f speed = {1, 1};
 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
     sf::RenderWindow window(
-        sf::VideoMode({800, 800}), "Ellipse",
+        sf::VideoMode({800, 800}), "Floating rose",
         sf::Style::Default, settings);
 
     sf::ConvexShape ellipse;
@@ -22,9 +22,10 @@ int main()
     for (int pointNo = 0; pointNo < pointCount; ++pointNo)
     {
         float angle = float(2 * M_PI * pointNo) / float(pointCount);
+        float radius = roseRadius * std::cos(6 * angle);
         sf::Vector2f point = {
-            ellipseRadius.x * std::cos(6 * angle) * std::sin(angle),
-            ellipseRadius.y * std::cos(6 * angle) * std::cos(angle)};
+            radius * std::sin(angle),
+            radius * std::cos(angle)};
         ellipse.setPoint(pointNo, point);
     };
 
